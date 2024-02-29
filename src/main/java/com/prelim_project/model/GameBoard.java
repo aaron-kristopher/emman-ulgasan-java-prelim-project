@@ -1,8 +1,8 @@
 package com.prelim_project.model;
 
 public class GameBoard {
-    char[][] board;
-    int size;
+    private char[][] board;
+    private int size;
 
     GameBoard(int size) {
         this.size = size;
@@ -20,11 +20,19 @@ public class GameBoard {
         return true;
     }
 
+    public boolean isCellEmpty(int row, int col) {
+        return board[row][col] == '\u0000'; // '\u0000' is the default value for a char
+    }
+
     public void setCell(int row, int col, char value) {
         board[row][col] = value;
     }
 
     public void clearBoard() {
         board = new char[size][size];
+    }
+
+    public int getSize() {
+        return size;
     }
 }
