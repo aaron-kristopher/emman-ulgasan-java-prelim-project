@@ -1,5 +1,6 @@
 package com.prelim_project.game;
 
+import com.prelim_project.gui.GameView;
 import com.prelim_project.model.GameBoard;
 import com.prelim_project.model.Player;
 import com.prelim_project.util.PlayerInput;
@@ -10,8 +11,13 @@ public class Game {
     static Player currentPlayer;
     static char currentSymbol = 'S';
 
+    public static void main(String[] args) {
+        Game game = new Game();
+        game.startGame();
+    }
+
     public void initializeGame() {
-        GameBoard board = new GameBoard(7);
+        board = new GameBoard(7);
 
         String player1Name = PlayerInput.getName(1);
         Player player1 = new Player(player1Name);
@@ -27,7 +33,9 @@ public class Game {
         initializeGame();
 
         while (!board.isBoardFull()) {
-            // TODO - print Board
+            GameView.printBoard(board);
+            GameView.printTurnInfo(currentPlayer, currentSymbol);
+            GameView.printScores(players);
 
             int[] move = PlayerInput.getMove();
             int row = move[0];
@@ -45,9 +53,10 @@ public class Game {
             int points = GameLogic.checkPoints(board, row, col, currentSymbol);
             if (points != 0) {
                 currentPlayer.increaseScore(points);
-                // TODO - print Board
             } else
                 currentPlayer = GameLogic.switchPlayer(players, currentPlayer);
+
+            currentSymbol = GameLogic.switchSymbol(currentSymbol);
         }
     }
 }
