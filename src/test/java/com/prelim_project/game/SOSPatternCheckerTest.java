@@ -69,6 +69,13 @@ public class SOSPatternCheckerTest {
     }
 
     @Test
+    public void verticalOnePointWithO() {
+        GameBoard zeroPointsBoard = CreateTestGameBoard.verticalOnePointBoardForO();
+        int points = SOSPatternChecker.checkVertical(zeroPointsBoard, 1, 1, 'S');
+        assertEquals(1, points);
+    }
+
+    @Test
     public void verticalZeroPointsWithS() {
         GameBoard zeroPointsBoard = CreateTestGameBoard.verticalZeroPointsBoardForS();
         int points = SOSPatternChecker.checkVertical(zeroPointsBoard, 2, 2, 'S');
