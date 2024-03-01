@@ -26,4 +26,24 @@ public class SOSPatternChecker {
         return points;
     }
 
+    public static int checkVertical(GameBoard board, int row, int col, int value) {
+        int points = 0;
+        int validPatternCount = 0;
+        int startRow = (value == 'S') ? Math.max(0, row - 2) : Math.max(0, row - 1);
+        int endRow = (value == 'S') ? Math.min(board.getSize() - 1, row + 2) : Math.min(board.getSize() - 1, row + 1);
+
+        for (int i = startRow; i <= endRow; i++) {
+            if (board.getCell(i, col) == validPattern[validPatternCount])
+                validPatternCount++;
+            else if (validPatternCount <= 2)
+                validPatternCount = 0;
+        }
+
+        if (validPatternCount == 5)
+            points = 2;
+        else if (validPatternCount >= 2)
+            points = 1;
+
+        return points;
+    }
 }
