@@ -6,6 +6,15 @@ public class SOSPatternChecker {
     private static final String onePointPattern = "SOS";
     private static final String twoPointPattern = "SOSOS";
 
+    public static int checkPoints(GameBoard board, int row, int col, int value) {
+        int points = 0;
+        points += SOSPatternChecker.checkVertical(board, row, col, value);
+        points += SOSPatternChecker.checkHorizontal(board, row, col, value);
+        points += SOSPatternChecker.checkDiagonal(board, row, col, value);
+
+        return points;
+    }
+
     public static int checkHorizontal(GameBoard board, int row, int col, int value) {
         StringBuffer pattern = new StringBuffer();
         int points = 0;
