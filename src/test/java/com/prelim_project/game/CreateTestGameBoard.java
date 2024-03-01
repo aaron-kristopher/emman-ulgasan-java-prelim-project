@@ -1,5 +1,7 @@
 package com.prelim_project.game;
 
+import java.util.Arrays;
+
 import com.prelim_project.model.GameBoard;
 
 public class CreateTestGameBoard {
@@ -237,6 +239,133 @@ public class CreateTestGameBoard {
         board.setCell(2, 2, 'O');
         board.setCell(3, 2, 'O');
         board.setCell(4, 2, 'S');
+
+        return board;
+    }
+
+    // DIAGONAL BOARDS
+
+    static GameBoard diagonalFourPointsBoardForS() {
+        /*
+         * 5x5 board with the following pattern:
+         * 
+         * S - - - S
+         * - O - O -
+         * - - S - -
+         * - O - O -
+         * S - - - S
+         */
+
+        GameBoard board = new GameBoard(5);
+        board.setCell(0, 0, 'S');
+        board.setCell(0, 4, 'S');
+        board.setCell(1, 1, 'O');
+        board.setCell(1, 3, 'O');
+        board.setCell(2, 2, 'S');
+        board.setCell(3, 1, 'O');
+        board.setCell(3, 3, 'O');
+        board.setCell(4, 4, 'S');
+        board.setCell(4, 0, 'S');
+
+        return board;
+    }
+
+    static GameBoard diagonalThreePointsBoardForS() {
+        /*
+         * 5x5 board with the following pattern:
+         * 
+         * S - - - S
+         * - O - O -
+         * - - S - -
+         * - O - S -
+         * S - - - S
+         */
+
+        GameBoard board = new GameBoard(5);
+        board.setCell(0, 0, 'S');
+        board.setCell(0, 4, 'S');
+        board.setCell(1, 1, 'O');
+        board.setCell(1, 3, 'O');
+        board.setCell(2, 2, 'S');
+        board.setCell(3, 1, 'O');
+        board.setCell(3, 3, 'S');
+        board.setCell(4, 4, 'S');
+        board.setCell(4, 0, 'S');
+
+        return board;
+    }
+
+    static GameBoard diagonalTwoPointsBoardForS() {
+        /*
+         * 5x5 board with the following pattern:
+         * 
+         * S - - - S
+         * - S - S -
+         * - - S - -
+         * - O - O -
+         * S - - - S
+         */
+
+        GameBoard board = new GameBoard(5);
+        board.setCell(0, 0, 'S');
+        board.setCell(0, 4, 'S');
+        board.setCell(1, 1, 'S');
+        board.setCell(1, 3, 'S');
+        board.setCell(2, 2, 'S');
+        board.setCell(3, 1, 'O');
+        board.setCell(3, 3, 'O');
+        board.setCell(4, 4, 'S');
+        board.setCell(4, 0, 'S');
+
+        return board;
+    }
+
+    static GameBoard diagonalOnePointBoardForS() {
+        /*
+         * 5x5 board with the following pattern:
+         * 
+         * S - - - S
+         * - S - S -
+         * - - S - -
+         * - O - S -
+         * S - - - S
+         */
+
+        GameBoard board = new GameBoard(5);
+        board.setCell(0, 0, 'S');
+        board.setCell(0, 4, 'S');
+        board.setCell(1, 1, 'S');
+        board.setCell(1, 3, 'S');
+        board.setCell(2, 2, 'S');
+        board.setCell(3, 1, 'O');
+        board.setCell(3, 3, 'S');
+        board.setCell(4, 4, 'S');
+        board.setCell(4, 0, 'S');
+
+        return board;
+    }
+
+    static GameBoard diagonalZeroPointsBoardForS() {
+        /*
+         * 5x5 board with the following pattern:
+         * 
+         * S - - - S
+         * - S - S -
+         * - - S - -
+         * - S - S -
+         * S - - - S
+         */
+
+        GameBoard board = new GameBoard(5);
+        board.setCell(0, 0, 'S');
+        board.setCell(0, 4, 'S');
+        board.setCell(1, 1, 'S');
+        board.setCell(1, 3, 'S');
+        board.setCell(2, 2, 'S');
+        board.setCell(3, 1, 'S');
+        board.setCell(3, 3, 'S');
+        board.setCell(4, 4, 'S');
+        board.setCell(4, 0, 'S');
 
         return board;
     }
