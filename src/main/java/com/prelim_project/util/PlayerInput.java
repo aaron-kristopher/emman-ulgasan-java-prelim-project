@@ -6,8 +6,8 @@ public class PlayerInput {
     private static Scanner scanner = new Scanner(System.in);
 
     public static int[] getMove() {
-        int row = getRow();
-        int column = getColumn();
+        int row = getRow() - 1;
+        int column = getColumn() - 1;
 
         return new int[] { row, column };
     }
@@ -15,7 +15,7 @@ public class PlayerInput {
     private static int getRow() {
         int row = -1;
         while (row < 0) {
-            System.out.println("Enter row: ");
+            System.out.print("\n\nEnter row: ");
             try {
                 row = scanner.nextInt();
             } catch (Exception e) {
@@ -29,7 +29,7 @@ public class PlayerInput {
     private static int getColumn() {
         int column = -1;
         while (column < 0) {
-            System.out.println("Enter column: ");
+            System.out.print("Enter column: ");
             try {
                 column = scanner.nextInt();
             } catch (Exception e) {
@@ -37,11 +37,12 @@ public class PlayerInput {
                 scanner.nextLine();
             }
         }
+        System.out.println();
         return column;
     }
 
     public static String getName(int playerNumber) {
-        System.out.println("Enter name for player #" + playerNumber + ": ");
+        System.out.printf("\nEnter name for player #%d: ", playerNumber);
         return scanner.nextLine();
     }
 }
