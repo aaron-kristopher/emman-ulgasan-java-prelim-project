@@ -18,8 +18,8 @@ public class Player {
         return score;
     }
 
-    public void increaseScore() {
-        score++;
+    public void increaseScore(int points) {
+        score += points;
     }
 
     public void resetScore() {
