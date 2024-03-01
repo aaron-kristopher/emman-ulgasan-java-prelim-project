@@ -4,7 +4,7 @@ public class GameBoard {
     private char[][] board;
     private int size;
 
-    GameBoard(int size) {
+    public GameBoard(int size) {
         this.size = size;
         board = new char[size][size];
     }
@@ -18,6 +18,10 @@ public class GameBoard {
             }
         }
         return true;
+    }
+
+    public char getCell(int row, int col) {
+        return Character.toUpperCase(board[row][col]);
     }
 
     public boolean isCellEmpty(int row, int col) {
