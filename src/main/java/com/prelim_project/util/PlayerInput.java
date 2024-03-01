@@ -5,33 +5,43 @@ import java.util.Scanner;
 public class PlayerInput {
     private static Scanner scanner = new Scanner(System.in);
 
-    public int[] getMove() {
+    public static int[] getMove() {
         int row = getRow();
         int column = getColumn();
 
         return new int[] { row, column };
     }
 
-    private int getRow() {
+    private static int getRow() {
         int row = -1;
         while (row < 0) {
-            System.out.println("Enter column: ");
-            row = scanner.nextInt();
+            System.out.println("Enter row: ");
+            try {
+                row = scanner.nextInt();
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please enter a number.");
+                scanner.nextLine();
+            }
         }
         return row;
     }
 
-    private int getColumn() {
+    private static int getColumn() {
         int column = -1;
         while (column < 0) {
             System.out.println("Enter column: ");
-            column = scanner.nextInt();
+            try {
+                column = scanner.nextInt();
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please enter a number.");
+                scanner.nextLine();
+            }
         }
         return column;
     }
 
-    public String getName() {
-        System.out.println("Enter your name: ");
+    public static String getName(int playerNumber) {
+        System.out.println("Enter name for player #" + playerNumber + ": ");
         return scanner.nextLine();
     }
 }
