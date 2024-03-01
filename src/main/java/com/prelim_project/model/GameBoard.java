@@ -39,4 +39,8 @@ public class GameBoard {
     public int getSize() {
         return size;
     }
+
+    public char[][] getBoard() {
+        return board;
+    }
 }
