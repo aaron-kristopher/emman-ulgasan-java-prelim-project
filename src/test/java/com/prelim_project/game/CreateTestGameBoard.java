@@ -4,48 +4,6 @@ import com.prelim_project.model.GameBoard;
 
 public class CreateTestGameBoard {
 
-    static GameBoard fullBoard() {
-        /*
-         * 5x5 board with the following pattern:
-         * 
-         * S O S O S
-         * S O S O S
-         * S O S O S
-         * S O S O S
-         * S O S O S
-         * 
-         */
-
-        GameBoard board = new GameBoard(5);
-        board.setCell(0, 0, 'S');
-        board.setCell(0, 1, 'O');
-        board.setCell(0, 2, 'S');
-        board.setCell(0, 3, 'O');
-        board.setCell(0, 4, 'S');
-        board.setCell(1, 0, 'S');
-        board.setCell(1, 1, 'O');
-        board.setCell(1, 2, 'S');
-        board.setCell(1, 3, 'O');
-        board.setCell(1, 4, 'S');
-        board.setCell(2, 0, 'S');
-        board.setCell(2, 1, 'O');
-        board.setCell(2, 2, 'S');
-        board.setCell(2, 3, 'O');
-        board.setCell(2, 4, 'S');
-        board.setCell(3, 0, 'S');
-        board.setCell(3, 1, 'O');
-        board.setCell(3, 2, 'S');
-        board.setCell(3, 3, 'O');
-        board.setCell(3, 4, 'S');
-        board.setCell(4, 0, 'S');
-        board.setCell(4, 1, 'O');
-        board.setCell(4, 2, 'S');
-        board.setCell(4, 3, 'O');
-        board.setCell(4, 4, 'S');
-
-        return board;
-    }
-
     static GameBoard emptyBoard() {
         /*
          * 5x5 board with no pattern
@@ -61,7 +19,31 @@ public class CreateTestGameBoard {
         return new GameBoard(5);
     }
 
-    static GameBoard onePointHorizontalBoardForS() {
+    // HORIZONTAL BOARDS
+
+    static GameBoard horizontalTwoPointBoardForS() {
+        /*
+         * 5x5 board with the following pattern:
+         * 
+         * - - - - -
+         * - - - - -
+         * S O S O S
+         * - - - - -
+         * - - - - -
+         * 
+         */
+
+        GameBoard board = new GameBoard(5);
+        board.setCell(2, 0, 'S');
+        board.setCell(2, 1, 'O');
+        board.setCell(2, 2, 'S');
+        board.setCell(2, 3, 'O');
+        board.setCell(2, 4, 'S');
+
+        return board;
+    }
+
+    static GameBoard horizontalOnePointBoardForS() {
         /*
          * 5x5 board with the following pattern:
          *
@@ -82,7 +64,7 @@ public class CreateTestGameBoard {
         return board;
     }
 
-    static GameBoard onePointHorizontalOffsetBoardForS() {
+    static GameBoard horizontalOnePointOffsetBoardForS() {
         /*
          * Character placement cannot be in the middle
          * 5x5 board with the following pattern:
@@ -104,7 +86,7 @@ public class CreateTestGameBoard {
         return board;
     }
 
-    static GameBoard onePointHorizontalBoardForO() {
+    static GameBoard horizontalOnePointBoardForO() {
         /*
          * 3x3 board with the following pattern:
          *
@@ -121,7 +103,7 @@ public class CreateTestGameBoard {
         return board;
     }
 
-    static GameBoard zeroPointHorizontalBoardForO() {
+    static GameBoard horizontalZeroPointsBoardForO() {
         /*
          * 3x3 board with the following pattern:
          *
@@ -134,6 +116,67 @@ public class CreateTestGameBoard {
         board.setCell(2, 0, 'S');
         board.setCell(2, 1, 'O');
         board.setCell(2, 2, 'O');
+
+        return board;
+    }
+
+    // VERTICAL BOARDS
+
+    static GameBoard verticalTwoPointsBoardForS() {
+        /*
+         * 5x5 board with the following pattern:
+         *
+         * - - S - -
+         * - - O - -
+         * - - S - -
+         * - - O - -
+         * - - S - -
+         */
+
+        GameBoard board = new GameBoard(5);
+        board.setCell(0, 2, 'S');
+        board.setCell(1, 2, 'O');
+        board.setCell(2, 2, 'S');
+        board.setCell(3, 2, 'O');
+        board.setCell(4, 2, 'S');
+
+        return board;
+    }
+
+    static GameBoard verticalZeroPointsBoardForO() {
+        /*
+         * 3x3 board with the following pattern:
+         *
+         * - S -
+         * - O -
+         * - O -
+         */
+
+        GameBoard board = new GameBoard(3);
+        board.setCell(0, 1, 'S');
+        board.setCell(1, 1, 'O');
+        board.setCell(2, 1, 'O');
+
+        return board;
+    }
+
+    static GameBoard verticalZeroPointsBoardForS() {
+        /*
+         * 5x5 board with the following pattern:
+         *
+         * - - O - -
+         * - - S - -
+         * - - O - -
+         * - - O - -
+         * - - S - -
+         */
+
+        GameBoard board = new GameBoard(5);
+        board.setCell(0, 2, 'O');
+        board.setCell(1, 2, 'S');
+        board.setCell(2, 2, 'O');
+        board.setCell(3, 2, 'O');
+        board.setCell(4, 2, 'S');
 
         return board;
     }
