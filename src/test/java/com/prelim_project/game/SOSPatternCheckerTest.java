@@ -88,4 +88,41 @@ public class SOSPatternCheckerTest {
         int points = SOSPatternChecker.checkVertical(zeroPointsBoard, 1, 1, 'O');
         assertEquals(0, points);
     }
+
+    // DIAGONAL TESTS
+
+    @Test
+    public void diagonalFourPointsWithS() {
+        GameBoard fourPointsBoard = CreateTestGameBoard.diagonalFourPointsBoardForS();
+        int points = SOSPatternChecker.checkDiagonal(fourPointsBoard, 2, 2, 'S');
+        assertEquals(4, points);
+    }
+
+    @Test
+    public void diagonalThreePointsBoardWithS() {
+        GameBoard threePointsBoard = CreateTestGameBoard.diagonalThreePointsBoardForS();
+        int points = SOSPatternChecker.checkDiagonal(threePointsBoard, 2, 2, 'S');
+        assertEquals(3, points);
+    }
+
+    @Test
+    public void diagonalTwoPointsBoardWithS() {
+        GameBoard twoPointsBoard = CreateTestGameBoard.diagonalTwoPointsBoardForS();
+        int points = SOSPatternChecker.checkDiagonal(twoPointsBoard, 2, 2, 'S');
+        assertEquals(2, points);
+    }
+
+    @Test
+    public void diagonalOnePointsBoardWithS() {
+        GameBoard onePointBoard = CreateTestGameBoard.diagonalOnePointBoardForS();
+        int points = SOSPatternChecker.checkDiagonal(onePointBoard, 2, 2, 'S');
+        assertEquals(1, points);
+    }
+
+    @Test
+    public void diagonalZeroPointsBoardWithS() {
+        GameBoard zeroPointBoard = CreateTestGameBoard.diagonalZeroPointsBoardForS();
+        int points = SOSPatternChecker.checkDiagonal(zeroPointBoard, 2, 2, 'S');
+        assertEquals(0, points);
+    }
 }
