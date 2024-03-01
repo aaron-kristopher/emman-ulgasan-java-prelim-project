@@ -82,6 +82,28 @@ public class CreateTestGameBoard {
         return board;
     }
 
+    static GameBoard onePointHorizontalOffsetBoardForS() {
+        /*
+         * Character placement cannot be in the middle
+         * 5x5 board with the following pattern:
+         *
+         * - - - - -
+         * - - - - -
+         * O S O S S
+         * - - - - -
+         * - - - - -
+         */
+
+        GameBoard board = new GameBoard(5);
+        board.setCell(2, 0, 'O');
+        board.setCell(2, 1, 'S');
+        board.setCell(2, 2, 'O');
+        board.setCell(2, 3, 'S');
+        board.setCell(2, 4, 'S');
+
+        return board;
+    }
+
     static GameBoard onePointHorizontalBoardForO() {
         /*
          * 3x3 board with the following pattern:

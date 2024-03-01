@@ -11,8 +11,12 @@ public class SOSPatternCheckerTest {
     @Test
     public void horizontalOnePointWithS() {
         GameBoard onePointBoard = CreateTestGameBoard.onePointHorizontalBoardForS();
-        int points = SOSPatternChecker.checkHorizontal(onePointBoard, 0, 2, 'S');
-        assertEquals(points, points);
+        GameBoard onePointOffsetBoard = CreateTestGameBoard.onePointHorizontalOffsetBoardForS();
+        int points1 = SOSPatternChecker.checkHorizontal(onePointBoard, 2, 2, 'S');
+        int points2 = SOSPatternChecker.checkHorizontal(onePointOffsetBoard, 2, 1, 'S');
+
+        assertEquals(1, points1);
+        assertEquals(1, points2);
     }
 
     @Test
