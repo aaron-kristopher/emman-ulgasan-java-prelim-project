@@ -1,7 +1,5 @@
 package com.prelim_project.game;
 
-import java.util.Arrays;
-
 import com.prelim_project.model.GameBoard;
 
 public class CreateTestGameBoard {
