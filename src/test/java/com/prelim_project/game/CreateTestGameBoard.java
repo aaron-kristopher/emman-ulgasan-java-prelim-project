@@ -143,6 +143,66 @@ public class CreateTestGameBoard {
         return board;
     }
 
+    static GameBoard verticalOnePointBoardForS() {
+        /*
+         * 5x5 board with the following pattern:
+         *
+         * - - O - -
+         * - - S - -
+         * - - S - -
+         * - - O - -
+         * - - S - -
+         */
+
+        GameBoard board = new GameBoard(5);
+        board.setCell(0, 2, 'O');
+        board.setCell(1, 2, 'S');
+        board.setCell(2, 2, 'S');
+        board.setCell(3, 2, 'O');
+        board.setCell(4, 2, 'S');
+
+        return board;
+    }
+
+    static GameBoard verticalOnePointOffsetBoardForS() {
+        /*
+         * Character placement cannot be in the middle
+         * 5x5 board with the following pattern:
+         *
+         * - - O - -
+         * - - S - -
+         * - - O - -
+         * - - S - -
+         * - - S - -
+         */
+
+        GameBoard board = new GameBoard(5);
+        board.setCell(0, 2, 'O');
+        board.setCell(1, 2, 'S');
+        board.setCell(2, 2, 'O');
+        board.setCell(3, 2, 'S');
+        board.setCell(4, 2, 'S');
+
+        return board;
+    }
+
+    static GameBoard verticalOnePointBoardForO() {
+        /*
+         * 3x3 board with the following pattern:
+         *
+         * - - S - -
+         * - - O - -
+         * - - S - -
+         */
+
+        GameBoard board = new GameBoard(3);
+        board.setCell(0, 1, 'S');
+        board.setCell(1, 1, 'O');
+        board.setCell(2, 1, 'S');
+
+        return board;
+    }
+
     static GameBoard verticalZeroPointsBoardForO() {
         /*
          * 3x3 board with the following pattern:
