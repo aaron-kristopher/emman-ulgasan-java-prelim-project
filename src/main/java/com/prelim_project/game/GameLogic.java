@@ -15,7 +15,7 @@ public class GameLogic {
     }
 
     public static int checkPoints(GameBoard board, int row, int col, char value) {
-        return SOSPatternChecker.checkPoints(board, row, col, value);
+        return SOSPatternChecker.calculateTotalPoints(board, row, col, value);
     }
 
     public static char switchSymbol(char symbol) {
