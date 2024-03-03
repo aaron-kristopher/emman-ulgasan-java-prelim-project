@@ -367,4 +367,74 @@ public class CreateTestGameBoard {
 
         return board;
     }
+
+    // EDGE BOARDS
+
+    static GameBoard edgeVerticalBoardForS() {
+        /*
+         * 5x5 board with the following pattern:
+         * 
+         * - - - - -
+         * - - - - -
+         * - - S - -
+         * - - O - -
+         * - - S - -
+         */
+
+        GameBoard board = new GameBoard(5);
+        board.setCell(2, 2, 'S');
+        board.setCell(3, 2, 'O');
+        board.setCell(4, 2, 'S');
+
+        return board;
+    }
+
+    static GameBoard edgeHorizontalBoardForS() {
+        /*
+         * 5x5 board with the following pattern:
+         * 
+         * - - - - -
+         * - - - - -
+         * O O S O S
+         * - - - - -
+         * - - - - -
+         */
+
+        GameBoard board = new GameBoard(5);
+        board.setCell(2, 0, 'O');
+        board.setCell(2, 1, 'O');
+        board.setCell(2, 2, 'S');
+        board.setCell(2, 3, 'O');
+        board.setCell(2, 4, 'S');
+
+        return board;
+    }
+
+    static GameBoard edgeDiagonalBoardForS() {
+        /*
+         * 5x5 board with the following pattern:
+         * 
+         * - S - - -
+         * - - O - -
+         * - - S S S
+         * - O - O S
+         * S - S - S
+         */
+
+        GameBoard board = new GameBoard(5);
+        board.setCell(0, 1, 'S');
+        board.setCell(1, 2, 'O');
+        board.setCell(2, 2, 'S');
+        board.setCell(2, 3, 'S');
+        board.setCell(2, 4, 'S');
+        board.setCell(3, 1, 'O');
+        board.setCell(3, 3, 'O');
+        board.setCell(3, 4, 'S');
+        board.setCell(4, 2, 'S');
+        board.setCell(4, 4, 'S');
+        board.setCell(4, 0, 'S');
+
+        return board;
+    }
+
 }
