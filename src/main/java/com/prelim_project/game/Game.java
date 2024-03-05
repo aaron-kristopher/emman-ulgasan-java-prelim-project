@@ -13,7 +13,7 @@ public class Game {
 
     public static void main(String[] args) {
         Game game = new Game();
-        game.startGame();
+        game.mainMenu();
     }
 
     private void initializeGame() {
@@ -26,7 +26,32 @@ public class Game {
         players = new Player[] { player1, player2 };
     }
 
-    public void startGame() {
+    private void mainMenu() {
+        GameView.printTitleScreen();
+        GameView.printMenu();
+
+        int option = PlayerInput.getMenuOption();
+
+        switch (option) {
+            case 1:
+                startGame();
+                break;
+            case 2:
+                GameView.printInstructions();
+                PlayerInput.pressContinue();
+                mainMenu();
+                break;
+            case 3:
+                System.out.println("Goodbye!");
+                System.exit(0);
+                break;
+            default:
+                System.out.println("Invalid option. Try again.");
+                mainMenu();
+        }
+    }
+
+    private void startGame() {
         initializeGame();
 
         while (!board.isBoardFull()) {
@@ -56,8 +81,9 @@ public class Game {
             currentSymbol = GameLogic.switchSymbol(currentSymbol);
         }
 
-        GameView.printBoard(board);
-        GameView.printScores(players);
-        GameView.printWinner(GameLogic.getWinner(players));
+        if (PlayerInput.getPlayAgain() == 'y')
+            startGame();
+        else
+            mainMenu();
     }
 }

@@ -30,6 +30,7 @@ public class GameView {
             printHorizontalDivder(size);
         }
         System.out.println();
+        System.out.println();
     }
 
     private static void printHorizontalDivder(int size) {
@@ -39,7 +40,7 @@ public class GameView {
     }
 
     public static void printTurnInfo(Player currentPlayer, char currentSymbol) {
-        System.out.printf("Current Player: %s\tCurrent Symbol: %s", currentPlayer.getName(), currentSymbol);
+        System.out.printf("Current Player: %s\t\tCurrent Symbol: %s", currentPlayer.getName(), currentSymbol);
     }
 
     public static void printScores(Player[] players) {
@@ -49,6 +50,43 @@ public class GameView {
     }
 
     public static void printWinner(Player player) {
-        System.out.printf("\n\n%s wins!", player.getName());
+        System.out.printf("\nCongratulations, %s wins!\n", player.getName());
+    }
+
+    public static void printTie() {
+        System.out.println("It's a tie!\n");
+    }
+
+    public static void printTitleScreen() {
+        System.out.println("""
+                ╔══─┉┈◈◉◈┈┉════─┉┈◈◉◈┈┉═══ ≪ °❈° ≫ ════─┉┈◈◉◈┈┉════─┉┈◈◉◈┈┉══╗
+
+                ░██████╗░█████╗░░██████╗  ░██████╗░░█████╗░███╗░░░███╗███████╗
+                ██╔════╝██╔══██╗██╔════╝  ██╔════╝░██╔══██╗████╗░████║██╔════╝
+                ╚█████╗░██║░░██║╚█████╗░  ██║░░██╗░███████║██╔████╔██║█████╗░░
+                ░╚═══██╗██║░░██║░╚═══██╗  ██║░░╚██╗██╔══██║██║╚██╔╝██║██╔══╝░░
+                ██████╔╝╚█████╔╝██████╔╝  ╚██████╔╝██║░░██║██║░╚═╝░██║███████╗
+                ╚═════╝░░╚════╝░╚═════╝░  ░╚═════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝╚══════╝
+
+                ╚═══─┉┈◈◉◈┈┉════─┉┈◈◉◈┈┉═══ ≪ °❈° ≫ ════─┉┈◈◉◈┈┉════─┉┈◈◉◈┈┉═╝
+                                    """);
+    }
+
+    public static void printMenu() {
+        System.out.println("""
+                1. Start Game
+                2. Instructions
+                3. Exit
+                """);
+    }
+
+    public static void printInstructions() {
+        System.out.println("""
+                Instructions:
+                1. The game is played on a grid that's 7 squares by 7 squares.
+                2. Players take turns putting their marks in empty squares.
+                4. When all 49 squares are full, the game is over. The player with the most points wins.
+
+                """);
     }
 }
