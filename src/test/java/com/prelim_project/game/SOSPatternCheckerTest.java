@@ -116,7 +116,9 @@ public class SOSPatternCheckerTest {
     public void diagonalOnePointsBoardWithS() {
         GameBoard onePointBoard = CreateTestGameBoard.diagonalOnePointBoardForS();
         int points = SOSPatternChecker.checkDiagonal(onePointBoard, 2, 2, 'S');
+        int points2 = SOSPatternChecker.checkDiagonal(onePointBoard, 4, 0, 'S');
         assertEquals(1, points);
+        assertEquals(1, points2);
     }
 
     @Test
@@ -145,14 +147,17 @@ public class SOSPatternCheckerTest {
     @Test
     public void edgeDiagonalBoardWithS() {
         GameBoard edgeDiagonalBoard = CreateTestGameBoard.edgeDiagonalBoardForS();
-        int points = SOSPatternChecker.checkDiagonal(edgeDiagonalBoard, 0, 1, 'S');
-        int points2 = SOSPatternChecker.checkDiagonal(edgeDiagonalBoard, 4, 4, 'S');
-        int points3 = SOSPatternChecker.checkDiagonal(edgeDiagonalBoard, 4, 2, 'S');
-        int points4 = SOSPatternChecker.checkDiagonal(edgeDiagonalBoard, 4, 0, 'S');
+        int points = SOSPatternChecker.checkDiagonal(edgeDiagonalBoard, 1, 2, 'S');
+        int points2 = SOSPatternChecker.checkDiagonal(edgeDiagonalBoard, 1, 4, 'S');
 
-        assertEquals(1, points);
+        assertEquals(0, points);
         assertEquals(1, points2);
-        assertEquals(1, points3);
-        assertEquals(1, points4);
+    }
+
+    @Test
+    public void closeToEdgeDiagonalBoardForS() {
+        GameBoard closeToEdgeDiagonalBoard = CreateTestGameBoard.closeToEdgeDiagonalBoardForS();
+        int points = SOSPatternChecker.checkDiagonal(closeToEdgeDiagonalBoard, 2, 3, 'S');
+        assertEquals(0, points);
     }
 }
