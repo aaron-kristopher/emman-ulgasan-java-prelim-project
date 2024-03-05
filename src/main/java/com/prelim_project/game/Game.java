@@ -27,6 +27,7 @@ public class Game {
     }
 
     private void mainMenu() {
+        GameView.clearScreen();
         GameView.printTitleScreen();
         GameView.printMenu();
 
@@ -37,12 +38,14 @@ public class Game {
                 startGame();
                 break;
             case 2:
+                GameView.clearScreen();
                 GameView.printInstructions();
                 PlayerInput.pressContinue();
                 mainMenu();
                 break;
             case 3:
-                System.out.println("Goodbye!");
+                GameView.clearScreen();
+                GameView.printCloseProgram();
                 System.exit(0);
                 break;
             default:
@@ -53,8 +56,11 @@ public class Game {
 
     private void startGame() {
         initializeGame();
+        GameView.clearScreen();
 
         while (!board.isBoardFull()) {
+            GameView.clearScreen();
+            GameView.printGameInProgress();
             GameView.printBoard(board);
             GameView.printTurnInfo(currentPlayer, currentSymbol);
             GameView.printScores(players);
@@ -80,6 +86,7 @@ public class Game {
 
             currentSymbol = GameLogic.switchSymbol(currentSymbol);
         }
+        GameView.clearScreen();
         GameView.printBoard(board);
 
         // Displays game outcome
