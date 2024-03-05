@@ -2,6 +2,8 @@ package com.prelim_project.util;
 
 import java.util.Scanner;
 
+import com.prelim_project.gui.GameView;
+
 public class PlayerInput {
     private static Scanner scanner = new Scanner(System.in);
 
@@ -19,6 +21,7 @@ public class PlayerInput {
             try {
                 row = scanner.nextInt();
             } catch (Exception e) {
+                GameView.clearScreen();
                 System.out.println("Invalid input. Please enter a number.");
                 scanner.nextLine();
             }
@@ -33,6 +36,7 @@ public class PlayerInput {
             try {
                 column = scanner.nextInt();
             } catch (Exception e) {
+                GameView.clearScreen();
                 System.out.println("Invalid input. Please enter a number.");
                 scanner.nextLine();
             }
@@ -53,6 +57,7 @@ public class PlayerInput {
             try {
                 option = scanner.nextInt();
             } catch (Exception e) {
+                GameView.clearScreen();
                 System.out.println("Invalid input. Please enter a number.");
                 scanner.nextLine();
             }
@@ -62,7 +67,7 @@ public class PlayerInput {
     }
 
     public static void pressContinue() {
-        System.out.println("\nPress Enter to continue...");
+        System.out.print("\nPress Enter to continue...");
         scanner.nextLine();
     }
 
@@ -71,6 +76,7 @@ public class PlayerInput {
         while (playAgain != 'y' && playAgain != 'n') {
             System.out.print("\nPlay again? (y/n): ");
             playAgain = scanner.next().charAt(0);
+            GameView.clearScreen();
         }
         scanner.nextLine();
         return playAgain;
