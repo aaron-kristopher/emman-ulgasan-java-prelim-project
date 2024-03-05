@@ -17,7 +17,7 @@ public class Game {
     }
 
     private void initializeGame() {
-        board = new GameBoard(3);
+        board = new GameBoard(7);
         currentSymbol = 'S';
 
         Player player1 = new Player(PlayerInput.getName(1));
