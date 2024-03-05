@@ -12,9 +12,8 @@ public class GameBoard {
     public boolean isBoardFull() {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                if (board[i][j] == 0) {
+                if (board[i][j] == '\u0000')
                     return false;
-                }
             }
         }
         return true;
