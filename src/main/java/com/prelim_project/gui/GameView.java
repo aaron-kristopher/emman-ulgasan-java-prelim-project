@@ -7,27 +7,35 @@ public class GameView {
 
     public static void printBoard(GameBoard board) {
         int size = board.getSize();
-        System.out.print("""
-                --------------------------------------------------
-                |     |  1  |  2  |  3  |  4  |  5  |  6  |  7  |
-                --------------------------------------------------""");
+
+        printHorizontalDivder(size);
+
+        for (int i = 1; i <= size; i++) {
+            if (i == 1)
+                System.out.printf("\n|     |  %d  |", i);
+            else
+                System.out.printf("  %d  |", i);
+        }
+        printHorizontalDivder(size);
 
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                char symbol = switch (board.getCell(i, j)) {
-                    case 'S' -> 'S';
-                    case 'O' -> 'O';
-                    default -> ' ';
-                };
+                char symbol = (board.getCell(i, j) == '\u0000') ? ' ' : board.getCell(i, j);
 
                 if (j == 0)
                     System.out.printf("\n|  %d  |  %s  |", i + 1, symbol);
                 else
                     System.out.printf("  %s  |", symbol);
             }
-            System.out.print("\n--------------------------------------------------");
+            printHorizontalDivder(size);
         }
         System.out.println();
+    }
+
+    private static void printHorizontalDivder(int size) {
+        System.out.println();
+        for (int j = 0; j <= size; j++)
+            System.out.print("------");
     }
 
     public static void printTurnInfo(Player currentPlayer, char currentSymbol) {
@@ -39,5 +47,9 @@ public class GameView {
         for (Player player : players) {
             System.out.printf("%s: %d\t", player.getName(), player.getScore());
         }
+    }
+
+    public static void printWinner(Player player) {
+        System.out.printf("\n\n%s wins!", player.getName());
     }
 }
