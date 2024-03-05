@@ -89,4 +89,17 @@ public class GameView {
 
                 """);
     }
+
+    public static void printGameInProgress() {
+        System.out.println("A Game of Wits, SOS...");
+    }
+
+    public static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
+    public static void printCloseProgram() {
+        System.out.println("Thank you for playing SOS. Goodbye!");
+    }
 }
