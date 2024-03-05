@@ -16,14 +16,11 @@ public class Game {
         game.startGame();
     }
 
-    public void initializeGame() {
+    private void initializeGame() {
         board = new GameBoard(7);
 
-        String player1Name = PlayerInput.getName(1);
-        Player player1 = new Player(player1Name);
-
-        String player2Name = PlayerInput.getName(2);
-        Player player2 = new Player(player2Name);
+        Player player1 = new Player(PlayerInput.getName(1));
+        Player player2 = new Player(PlayerInput.getName(2));
 
         currentPlayer = player1;
         players = new Player[] { player1, player2 };
@@ -58,5 +55,9 @@ public class Game {
 
             currentSymbol = GameLogic.switchSymbol(currentSymbol);
         }
+
+        GameView.printBoard(board);
+        GameView.printScores(players);
+        GameView.printWinner(GameLogic.getWinner(players));
     }
 }
