@@ -83,8 +83,12 @@ public class GameView {
     public static void printInstructions() {
         System.out.println("""
                 Instructions:
-                1. The game is played on a grid that's 7 squares by 7 squares.
-                2. Players take turns putting their marks in empty squares.
+                1. SOS is a two player game with 7x7 table (7 rows and 7 columns).
+                2. The user will have the option whether he/she will choose to be player 1 or player 2.
+                3. Both players can input S and O.
+                4. Each turn playes one player.
+                5. A sequence O-S-O is not valid on the game and the player will not earn points.
+                6. A player that makes SOS will earn a point and can play another turn.
                 4. When all 49 squares are full, the game is over. The player with the most points wins.
 
                 """);
