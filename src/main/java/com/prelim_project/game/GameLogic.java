@@ -29,4 +29,8 @@ public class GameLogic {
     public static Player getWinner(Player[] players) {
         return players[0].getScore() > players[1].getScore() ? players[0] : players[1];
     }
+
+    public static boolean isATie(Player[] players) {
+        return players[0].getScore() == players[1].getScore();
+    }
 }
