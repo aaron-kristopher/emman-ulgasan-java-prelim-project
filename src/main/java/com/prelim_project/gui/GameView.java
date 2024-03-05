@@ -44,9 +44,8 @@ public class GameView {
 
     public static void printScores(Player[] players) {
         System.out.println("\n\nScores:");
-        for (Player player : players) {
+        for (Player player : players)
             System.out.printf("%s: %d\t", player.getName(), player.getScore());
-        }
     }
 
     public static void printWinner(Player player) {
