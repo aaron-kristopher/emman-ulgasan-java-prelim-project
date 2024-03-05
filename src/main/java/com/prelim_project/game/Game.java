@@ -17,13 +17,13 @@ public class Game {
     }
 
     private void initializeGame() {
-        board = new GameBoard(7);
+        board = new GameBoard(3);
+        currentSymbol = 'S';
 
         Player player1 = new Player(PlayerInput.getName(1));
         Player player2 = new Player(PlayerInput.getName(2));
-
-        currentPlayer = player1;
         players = new Player[] { player1, player2 };
+        currentPlayer = player1;
     }
 
     private void mainMenu() {
@@ -80,7 +80,15 @@ public class Game {
 
             currentSymbol = GameLogic.switchSymbol(currentSymbol);
         }
+        GameView.printBoard(board);
 
+        // Displays game outcome
+        if (GameLogic.isATie(players))
+            GameView.printTie();
+        else
+            GameView.printWinner(GameLogic.getWinner(players));
+
+        // Loops if players wants to play agian
         if (PlayerInput.getPlayAgain() == 'y')
             startGame();
         else
