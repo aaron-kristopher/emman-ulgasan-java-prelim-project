@@ -83,7 +83,6 @@ public class SOSPatternChecker {
             j++;
         }
 
-        System.out.println(pattern.toString());
         if (pattern.toString().contains(SOSOS_PATTERN))
             points = 2;
         else if (pattern.toString().contains(SOS_PATTERN))
@@ -106,7 +105,6 @@ public class SOSPatternChecker {
             startRow++;
         }
 
-        System.out.println(pattern.toString());
         if (pattern.toString().contains(SOSOS_PATTERN))
             points += 2;
         else if (pattern.toString().contains(SOS_PATTERN))
