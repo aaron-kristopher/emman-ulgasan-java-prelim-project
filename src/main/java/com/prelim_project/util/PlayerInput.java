@@ -45,4 +45,34 @@ public class PlayerInput {
         System.out.printf("\nEnter name for player #%d: ", playerNumber);
         return scanner.nextLine();
     }
+
+    public static int getMenuOption() {
+        int option = -1;
+        while (option < 0) {
+            System.out.print("\nEnter option: ");
+            try {
+                option = scanner.nextInt();
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please enter a number.");
+                scanner.nextLine();
+            }
+        }
+        scanner.nextLine();
+        return option;
+    }
+
+    public static void pressContinue() {
+        System.out.println("\nPress Enter to continue...");
+        scanner.nextLine();
+    }
+
+    public static char getPlayAgain() {
+        char playAgain = '\u0000';
+        while (playAgain != 'y' && playAgain != 'n') {
+            System.out.print("\nPlay again? (y/n): ");
+            playAgain = scanner.next().charAt(0);
+        }
+        scanner.nextLine();
+        return playAgain;
+    }
 }
