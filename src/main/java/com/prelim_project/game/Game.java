@@ -57,6 +57,7 @@ public class Game {
     private void startGame() {
         initializeGame();
         GameView.clearScreen();
+        GameView.printLoadingScreen();
 
         while (!board.isBoardFull()) {
             GameView.clearScreen();

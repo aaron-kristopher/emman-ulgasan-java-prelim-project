@@ -46,7 +46,7 @@ public class GameView {
     public static void printScores(Player[] players) {
         System.out.println("\n\nScores:");
         for (Player player : players)
-            System.out.printf("%s: %d\t", player.getName(), player.getScore());
+            System.out.printf("%s: %d\t\t", player.getName(), player.getScore());
         System.out.println();
     }
 
@@ -60,17 +60,17 @@ public class GameView {
 
     public static void printTitleScreen() {
         System.out.println("""
-                ╔══─┉┈◈◉◈┈┉════─┉┈◈◉◈┈┉═══ ≪ °❈° ≫ ════─┉┈◈◉◈┈┉════─┉┈◈◉◈┈┉══╗
+                ╔══════─┉┈◈◉◈┈┉═════─┉┈◈◉◈┈┉═══ ≪ °❈° ≫ ════─┉┈◈◉◈┈┉══════─┉┈◈◉◈┈┉═══════╗
 
-                ░██████╗░█████╗░░██████╗  ░██████╗░░█████╗░███╗░░░███╗███████╗
-                ██╔════╝██╔══██╗██╔════╝  ██╔════╝░██╔══██╗████╗░████║██╔════╝
-                ╚█████╗░██║░░██║╚█████╗░  ██║░░██╗░███████║██╔████╔██║█████╗░░
-                ░╚═══██╗██║░░██║░╚═══██╗  ██║░░╚██╗██╔══██║██║╚██╔╝██║██╔══╝░░
-                ██████╔╝╚█████╔╝██████╔╝  ╚██████╔╝██║░░██║██║░╚═╝░██║███████╗
-                ╚═════╝░░╚════╝░╚═════╝░  ░╚═════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝╚══════╝
+                ░██╗░░░░░░░██╗░█████╗░░██╗░░░░░░░██╗  ░██████╗░░█████╗░███╗░░░███╗███████╗
+                ░██║░░██╗░░██║██╔══██╗░██║░░██╗░░██║  ██╔════╝░██╔══██╗████╗░████║██╔════╝
+                ░╚██╗████╗██╔╝██║░░██║░╚██╗████╗██╔╝  ██║░░██╗░███████║██╔████╔██║█████╗░░
+                ░░████╔═████║░██║░░██║░░████╔═████║░  ██║░░╚██╗██╔══██║██║╚██╔╝██║██╔══╝░░
+                ░░╚██╔╝░╚██╔╝░╚█████╔╝░░╚██╔╝░╚██╔╝░  ╚██████╔╝██║░░██║██║░╚═╝░██║███████╗
+                ░░░╚═╝░░░╚═╝░░░╚════╝░░░░╚═╝░░░╚═╝░░  ░╚═════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝╚══════╝
 
-                ╚═══─┉┈◈◉◈┈┉════─┉┈◈◉◈┈┉═══ ≪ °❈° ≫ ════─┉┈◈◉◈┈┉════─┉┈◈◉◈┈┉═╝
-                                    """);
+                ╚═══════─┉┈◈◉◈┈┉════─┉┈◈◉◈┈┉═══ ≪ °❈° ≫ ════─┉┈◈◉◈┈┉═════─┉┈◈◉◈┈┉════════╝
+                                                    """);
     }
 
     public static void printMenu() {
@@ -93,6 +93,22 @@ public class GameView {
                 4. When all 49 squares are full, the game is over. The player with the most points wins.
 
                 """);
+    }
+
+    public static void printLoadingScreen() {
+        char[] bars = { '|', '/', '-', '\\' };
+        String load = "█";
+        String space = " ";
+        for (int i = 0; i < 25; i++) {
+            try {
+                System.out.print("\rSetting up board " + bars[i % 4] + "\n");
+                System.out.print("[ " + load.repeat(i) + space.repeat(25 - i) + " ]\n");
+                Thread.sleep(100);
+                clearScreen();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public static void printGameInProgress() {
