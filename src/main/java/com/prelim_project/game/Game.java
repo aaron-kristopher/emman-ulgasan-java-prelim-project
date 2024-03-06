@@ -9,7 +9,7 @@ public class Game {
     static GameBoard board;
     static Player[] players;
     static Player currentPlayer;
-    static char currentSymbol = 'S';
+    static char currentSymbol = 'W';
 
     public static void main(String[] args) {
         Game game = new Game();
@@ -18,7 +18,7 @@ public class Game {
 
     private void initializeGame() {
         board = new GameBoard(7);
-        currentSymbol = 'S';
+        currentSymbol = 'W';
 
         Player player1 = new Player(PlayerInput.getName(1));
         Player player2 = new Player(PlayerInput.getName(2));
@@ -65,13 +65,13 @@ public class Game {
             GameView.printTurnInfo(currentPlayer, currentSymbol);
             GameView.printScores(players);
 
-            int[] move = PlayerInput.getMove();
+            int[] move = PlayerInput.getMove(board.getSize());
             int row = move[0];
             int col = move[1];
 
             while (!GameLogic.isValidMove(row, col, board)) {
-                System.out.println("Invalid move. Try again.");
-                move = PlayerInput.getMove();
+                System.out.println("Invalid move. Cell is already occupied. Try again.");
+                move = PlayerInput.getMove(board.getSize());
                 row = move[0];
                 col = move[1];
             }
