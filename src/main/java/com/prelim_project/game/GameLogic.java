@@ -15,11 +15,11 @@ public class GameLogic {
     }
 
     public static int checkPoints(GameBoard board, int row, int col, char value) {
-        return SOSPatternChecker.calculateTotalPoints(board, row, col, value);
+        return WOWPatternChecker.calculateTotalPoints(board, row, col, value);
     }
 
     public static char switchSymbol(char symbol) {
-        return symbol == 'S' ? 'O' : 'S';
+        return symbol == 'W' ? 'O' : 'W';
     }
 
     public static Player switchPlayer(Player[] players, Player currentPlayer) {
