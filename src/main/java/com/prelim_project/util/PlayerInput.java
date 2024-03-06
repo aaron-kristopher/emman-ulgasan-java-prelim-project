@@ -7,37 +7,39 @@ import com.prelim_project.gui.GameView;
 public class PlayerInput {
     private static Scanner scanner = new Scanner(System.in);
 
-    public static int[] getMove() {
-        int row = getRow() - 1;
-        int column = getColumn() - 1;
+    public static int[] getMove(int boardSize) {
+        int row = getRow(boardSize) - 1;
+        int column = getColumn(boardSize) - 1;
 
         return new int[] { row, column };
     }
 
-    private static int getRow() {
+    private static int getRow(int maxRow) {
         int row = -1;
-        while (row < 0) {
-            System.out.print("\n\nEnter row: ");
+        while (row < 0 || row > maxRow) {
+            System.out.print("\nEnter row: ");
             try {
                 row = scanner.nextInt();
+                if (row < 0 || row > maxRow)
+                    System.out.println("\nInvalid input. Please enter a number within the range.");
             } catch (Exception e) {
-                GameView.clearScreen();
-                System.out.println("Invalid input. Please enter a number.");
+                System.out.println("\nInvalid input. Please enter a number.");
                 scanner.nextLine();
             }
         }
         return row;
     }
 
-    private static int getColumn() {
+    private static int getColumn(int maxCol) {
         int column = -1;
-        while (column < 0) {
+        while (column < 0 || column > maxCol) {
             System.out.print("Enter column: ");
             try {
                 column = scanner.nextInt();
+                if (column < 0 || column > maxCol)
+                    System.out.println("\nInvalid input. Please enter a number within the range.\n");
             } catch (Exception e) {
-                GameView.clearScreen();
-                System.out.println("Invalid input. Please enter a number.");
+                System.out.println("\nInvalid input. Please enter a number.\n");
                 scanner.nextLine();
             }
         }
@@ -56,9 +58,10 @@ public class PlayerInput {
             System.out.print("\nEnter option: ");
             try {
                 option = scanner.nextInt();
+                if (option < 0)
+                    System.out.println("\nInvalid input. Please enter a number within the range.");
             } catch (Exception e) {
-                GameView.clearScreen();
-                System.out.println("Invalid input. Please enter a number.");
+                System.out.println("\nInvalid input. Please enter a number.");
                 scanner.nextLine();
             }
         }
