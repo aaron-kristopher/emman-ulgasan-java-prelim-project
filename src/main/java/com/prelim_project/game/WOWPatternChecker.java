@@ -2,15 +2,15 @@ package com.prelim_project.game;
 
 import com.prelim_project.model.GameBoard;
 
-public class SOSPatternChecker {
-    private static final String SOS_PATTERN = "SOS";
-    private static final String SOSOS_PATTERN = "SOSOS";
+public class WOWPatternChecker {
+    private static final String WOW_PATTERN = "WOW";
+    private static final String WOWOW_PATTERN = "WOWOW";
 
     public static int calculateTotalPoints(GameBoard board, int row, int col, int symbol) {
         int points = 0;
-        points += SOSPatternChecker.checkVertical(board, row, col, symbol);
-        points += SOSPatternChecker.checkHorizontal(board, row, col, symbol);
-        points += SOSPatternChecker.checkDiagonal(board, row, col, symbol);
+        points += WOWPatternChecker.checkVertical(board, row, col, symbol);
+        points += WOWPatternChecker.checkHorizontal(board, row, col, symbol);
+        points += WOWPatternChecker.checkDiagonal(board, row, col, symbol);
 
         return points;
     }
@@ -26,17 +26,17 @@ public class SOSPatternChecker {
         for (int i = startCol; i <= endCol; i++)
             pattern.append(board.getCell(row, i));
 
-        if (pattern.toString().contains(SOSOS_PATTERN))
+        if (pattern.toString().contains(WOWOW_PATTERN))
             points = 2;
-        else if (pattern.toString().contains(SOS_PATTERN))
+        else if (pattern.toString().contains(WOW_PATTERN))
             points = 1;
 
         return points;
     }
 
     private static int[] calculateColumnBoundaries(int size, int row, int col, int symbol) {
-        int startCol = (symbol == 'S') ? Math.max(0, col - 2) : Math.max(0, col - 1);
-        int endCol = (symbol == 'S') ? Math.min(size - 1, col + 2) : Math.min(size - 1, col + 1);
+        int startCol = (symbol == 'W') ? Math.max(0, col - 2) : Math.max(0, col - 1);
+        int endCol = (symbol == 'W') ? Math.min(size - 1, col + 2) : Math.min(size - 1, col + 1);
         return new int[] { startCol, endCol };
     }
 
@@ -51,17 +51,17 @@ public class SOSPatternChecker {
         for (int i = startRow; i <= endRow; i++)
             pattern.append(board.getCell(i, col));
 
-        if (pattern.toString().contains(SOSOS_PATTERN))
+        if (pattern.toString().contains(WOWOW_PATTERN))
             points = 2;
-        else if (pattern.toString().contains(SOS_PATTERN))
+        else if (pattern.toString().contains(WOW_PATTERN))
             points = 1;
 
         return points;
     }
 
     private static int[] calculateRowBoundaries(GameBoard board, int row, int col, int symbol) {
-        int startRow = (symbol == 'S') ? Math.max(0, row - 2) : Math.max(0, row - 1);
-        int endRow = (symbol == 'S') ? Math.min(board.getSize() - 1, row + 2) : Math.min(board.getSize() - 1, row + 1);
+        int startRow = (symbol == 'W') ? Math.max(0, row - 2) : Math.max(0, row - 1);
+        int endRow = (symbol == 'W') ? Math.min(board.getSize() - 1, row + 2) : Math.min(board.getSize() - 1, row + 1);
         return new int[] { startRow, endRow };
     }
 
@@ -83,9 +83,9 @@ public class SOSPatternChecker {
             j++;
         }
 
-        if (pattern.toString().contains(SOSOS_PATTERN))
+        if (pattern.toString().contains(WOWOW_PATTERN))
             points = 2;
-        else if (pattern.toString().contains(SOS_PATTERN))
+        else if (pattern.toString().contains(WOW_PATTERN))
             points = 1;
 
         // Returns if the symbol is in the last cell
@@ -105,9 +105,9 @@ public class SOSPatternChecker {
             startRow++;
         }
 
-        if (pattern.toString().contains(SOSOS_PATTERN))
+        if (pattern.toString().contains(WOWOW_PATTERN))
             points += 2;
-        else if (pattern.toString().contains(SOS_PATTERN))
+        else if (pattern.toString().contains(WOW_PATTERN))
             points += 1;
 
         return points;
@@ -118,7 +118,7 @@ public class SOSPatternChecker {
 
         // Ensures valid boundaries for diagonal checks, considering board edges and
         // starting position:
-        int subMatrixSize = (symbol == 'S') ? 3 : 2;
+        int subMatrixSize = (symbol == 'W') ? 3 : 2;
 
         startCol = (row == 0) ? col : (row == 1) ? Math.max(0, col - 1) : Math.max(0, col - (subMatrixSize - 1));
         endCol = Math.min(size - 1, col + (subMatrixSize - 1));
@@ -135,10 +135,13 @@ public class SOSPatternChecker {
 
         // Ensures valid boundaries for diagonal checks, considering board edges and
         // starting position:
-        int subMatrixSize = (symbol == 'S') ? 3 : 2;
+        int subMatrixSize = (symbol == 'W') ? 3 : 2;
 
         startCol = (row == 0) ? Math.max(0, col - 2) : Math.max(0, col - (subMatrixSize - 1));
-        endCol = (row == 0) ? Math.max(0, col) : Math.min(size - 1, col + (subMatrixSize - 1));
+        endCol = (row == 0) ? Math.max(0, col)
+                : (row == 1)
+                        ? Math.min(size - 1, col + 1)
+                        : Math.min(size - 1, col + (subMatrixSize - 1));
         startRow = (col >= size - 2) ? row : Math.max(0, row - (subMatrixSize - 1));
 
         return new int[] { startCol, endCol, startRow };
