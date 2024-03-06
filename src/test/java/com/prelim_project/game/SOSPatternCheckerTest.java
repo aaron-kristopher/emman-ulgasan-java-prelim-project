@@ -12,17 +12,17 @@ public class SOSPatternCheckerTest {
 
     @Test
     public void horizontalTwoPointsWithS() {
-        GameBoard twoPointsBoard = CreateTestGameBoard.horizontalTwoPointBoardForS();
-        int points = SOSPatternChecker.checkHorizontal(twoPointsBoard, 2, 2, 'S');
+        GameBoard twoPointsBoard = CreateTestGameBoard.horizontalTwoPointBoardForW();
+        int points = WOWPatternChecker.checkHorizontal(twoPointsBoard, 2, 2, 'W');
         assertEquals(2, points);
     }
 
     @Test
     public void horizontalOnePointWithS() {
-        GameBoard onePointBoard = CreateTestGameBoard.horizontalOnePointBoardForS();
-        GameBoard onePointOffsetBoard = CreateTestGameBoard.horizontalOnePointOffsetBoardForS();
-        int points1 = SOSPatternChecker.checkHorizontal(onePointBoard, 2, 2, 'S');
-        int points2 = SOSPatternChecker.checkHorizontal(onePointOffsetBoard, 2, 1, 'S');
+        GameBoard onePointBoard = CreateTestGameBoard.horizontalOnePointBoardForW();
+        GameBoard onePointOffsetBoard = CreateTestGameBoard.horizontalOnePointOffsetBoardForW();
+        int points1 = WOWPatternChecker.checkHorizontal(onePointBoard, 2, 2, 'W');
+        int points2 = WOWPatternChecker.checkHorizontal(onePointOffsetBoard, 2, 1, 'W');
 
         assertEquals(1, points1);
         assertEquals(1, points2);
@@ -31,21 +31,21 @@ public class SOSPatternCheckerTest {
     @Test
     public void horizontalOnePointWithO() {
         GameBoard onePointBoard = CreateTestGameBoard.horizontalOnePointBoardForO();
-        int points = SOSPatternChecker.checkHorizontal(onePointBoard, 2, 1, 'O');
+        int points = WOWPatternChecker.checkHorizontal(onePointBoard, 2, 1, 'O');
         assertEquals(1, points);
     }
 
     @Test
     public void horizontalZeroPointsWithS() {
         GameBoard zeroPointsBoard = CreateTestGameBoard.emptyBoard();
-        int points = SOSPatternChecker.checkHorizontal(zeroPointsBoard, 0, 2, 'S');
+        int points = WOWPatternChecker.checkHorizontal(zeroPointsBoard, 0, 2, 'W');
         assertEquals(0, points);
     }
 
     @Test
     public void horizontalZeroPointsWithO() {
         GameBoard zeroPointsBoard = CreateTestGameBoard.horizontalZeroPointsBoardForO();
-        int points = SOSPatternChecker.checkHorizontal(zeroPointsBoard, 0, 2, 'O');
+        int points = WOWPatternChecker.checkHorizontal(zeroPointsBoard, 0, 2, 'O');
         assertEquals(0, points);
     }
 
@@ -53,17 +53,17 @@ public class SOSPatternCheckerTest {
 
     @Test
     public void verticalTwoPointsWithS() {
-        GameBoard twoPointsBoard = CreateTestGameBoard.verticalTwoPointsBoardForS();
-        int points = SOSPatternChecker.checkVertical(twoPointsBoard, 2, 2, 'S');
+        GameBoard twoPointsBoard = CreateTestGameBoard.verticalTwoPointsBoardForW();
+        int points = WOWPatternChecker.checkVertical(twoPointsBoard, 2, 2, 'W');
         assertEquals(2, points);
     }
 
     @Test
     public void verticalOnePointsWithS() {
-        GameBoard onePointBoard1 = CreateTestGameBoard.verticalOnePointBoardForS();
-        GameBoard onePointBoard2 = CreateTestGameBoard.verticalOnePointOffsetBoardForS();
-        int points1 = SOSPatternChecker.checkVertical(onePointBoard1, 2, 2, 'S');
-        int points2 = SOSPatternChecker.checkVertical(onePointBoard2, 1, 2, 'S');
+        GameBoard onePointBoard1 = CreateTestGameBoard.verticalOnePointBoardForW();
+        GameBoard onePointBoard2 = CreateTestGameBoard.verticalOnePointOffsetBoardForW();
+        int points1 = WOWPatternChecker.checkVertical(onePointBoard1, 2, 2, 'W');
+        int points2 = WOWPatternChecker.checkVertical(onePointBoard2, 1, 2, 'W');
         assertEquals(1, points1);
         assertEquals(1, points2);
     }
@@ -71,21 +71,21 @@ public class SOSPatternCheckerTest {
     @Test
     public void verticalOnePointWithO() {
         GameBoard zeroPointsBoard = CreateTestGameBoard.verticalOnePointBoardForO();
-        int points = SOSPatternChecker.checkVertical(zeroPointsBoard, 1, 1, 'S');
+        int points = WOWPatternChecker.checkVertical(zeroPointsBoard, 1, 1, 'W');
         assertEquals(1, points);
     }
 
     @Test
     public void verticalZeroPointsWithS() {
-        GameBoard zeroPointsBoard = CreateTestGameBoard.verticalZeroPointsBoardForS();
-        int points = SOSPatternChecker.checkVertical(zeroPointsBoard, 2, 2, 'S');
+        GameBoard zeroPointsBoard = CreateTestGameBoard.verticalZeroPointsBoardForW();
+        int points = WOWPatternChecker.checkVertical(zeroPointsBoard, 2, 2, 'W');
         assertEquals(0, points);
     }
 
     @Test
     public void verticalZeroPointsWithO() {
         GameBoard zeroPointsBoard = CreateTestGameBoard.verticalZeroPointsBoardForO();
-        int points = SOSPatternChecker.checkVertical(zeroPointsBoard, 1, 1, 'O');
+        int points = WOWPatternChecker.checkVertical(zeroPointsBoard, 1, 1, 'O');
         assertEquals(0, points);
     }
 
@@ -93,38 +93,38 @@ public class SOSPatternCheckerTest {
 
     @Test
     public void diagonalFourPointsWithS() {
-        GameBoard fourPointsBoard = CreateTestGameBoard.diagonalFourPointsBoardForS();
-        int points = SOSPatternChecker.checkDiagonal(fourPointsBoard, 2, 2, 'S');
+        GameBoard fourPointsBoard = CreateTestGameBoard.diagonalFourPointsBoardForW();
+        int points = WOWPatternChecker.checkDiagonal(fourPointsBoard, 2, 2, 'W');
         assertEquals(4, points);
     }
 
     @Test
     public void diagonalThreePointsBoardWithS() {
-        GameBoard threePointsBoard = CreateTestGameBoard.diagonalThreePointsBoardForS();
-        int points = SOSPatternChecker.checkDiagonal(threePointsBoard, 2, 2, 'S');
+        GameBoard threePointsBoard = CreateTestGameBoard.diagonalThreePointsBoardForW();
+        int points = WOWPatternChecker.checkDiagonal(threePointsBoard, 2, 2, 'W');
         assertEquals(3, points);
     }
 
     @Test
     public void diagonalTwoPointsBoardWithS() {
-        GameBoard twoPointsBoard = CreateTestGameBoard.diagonalTwoPointsBoardForS();
-        int points = SOSPatternChecker.checkDiagonal(twoPointsBoard, 2, 2, 'S');
+        GameBoard twoPointsBoard = CreateTestGameBoard.diagonalTwoPointsBoardForW();
+        int points = WOWPatternChecker.checkDiagonal(twoPointsBoard, 2, 2, 'W');
         assertEquals(2, points);
     }
 
     @Test
     public void diagonalOnePointsBoardWithS() {
-        GameBoard onePointBoard = CreateTestGameBoard.diagonalOnePointBoardForS();
-        int points = SOSPatternChecker.checkDiagonal(onePointBoard, 2, 2, 'S');
-        int points2 = SOSPatternChecker.checkDiagonal(onePointBoard, 4, 0, 'S');
+        GameBoard onePointBoard = CreateTestGameBoard.diagonalOnePointBoardForW();
+        int points = WOWPatternChecker.checkDiagonal(onePointBoard, 2, 2, 'W');
+        int points2 = WOWPatternChecker.checkDiagonal(onePointBoard, 4, 0, 'W');
         assertEquals(1, points);
         assertEquals(1, points2);
     }
 
     @Test
     public void diagonalZeroPointsBoardWithS() {
-        GameBoard zeroPointBoard = CreateTestGameBoard.diagonalZeroPointsBoardForS();
-        int points = SOSPatternChecker.checkDiagonal(zeroPointBoard, 2, 2, 'S');
+        GameBoard zeroPointBoard = CreateTestGameBoard.diagonalZeroPointsBoardForW();
+        int points = WOWPatternChecker.checkDiagonal(zeroPointBoard, 2, 2, 'W');
         assertEquals(0, points);
     }
 
@@ -132,32 +132,39 @@ public class SOSPatternCheckerTest {
 
     @Test
     public void edgeVerticalBoardWithS() {
-        GameBoard edgeVerticalBoard = CreateTestGameBoard.edgeVerticalBoardForS();
-        int points = SOSPatternChecker.checkVertical(edgeVerticalBoard, 4, 2, 'S');
+        GameBoard edgeVerticalBoard = CreateTestGameBoard.edgeVerticalBoardForW();
+        int points = WOWPatternChecker.checkVertical(edgeVerticalBoard, 4, 2, 'W');
         assertEquals(1, points);
     }
 
     @Test
     public void edgeHorizontalBoardWithS() {
-        GameBoard edgeHorizontalBoard = CreateTestGameBoard.edgeHorizontalBoardForS();
-        int points = SOSPatternChecker.checkHorizontal(edgeHorizontalBoard, 2, 4, 'S');
+        GameBoard edgeHorizontalBoard = CreateTestGameBoard.edgeHorizontalBoardForW();
+        int points = WOWPatternChecker.checkHorizontal(edgeHorizontalBoard, 2, 4, 'W');
         assertEquals(1, points);
     }
 
     @Test
     public void edgeDiagonalBoardWithS() {
-        GameBoard edgeDiagonalBoard = CreateTestGameBoard.edgeDiagonalBoardForS();
-        int points = SOSPatternChecker.checkDiagonal(edgeDiagonalBoard, 1, 2, 'S');
-        int points2 = SOSPatternChecker.checkDiagonal(edgeDiagonalBoard, 1, 4, 'S');
+        GameBoard edgeDiagonalBoard = CreateTestGameBoard.edgeDiagonalBoardForW();
+        int points = WOWPatternChecker.checkDiagonal(edgeDiagonalBoard, 1, 2, 'W');
+        int points2 = WOWPatternChecker.checkDiagonal(edgeDiagonalBoard, 1, 4, 'W');
 
         assertEquals(0, points);
         assertEquals(1, points2);
     }
 
     @Test
-    public void closeToEdgeDiagonalBoardForS() {
-        GameBoard closeToEdgeDiagonalBoard = CreateTestGameBoard.closeToEdgeDiagonalBoardForS();
-        int points = SOSPatternChecker.checkDiagonal(closeToEdgeDiagonalBoard, 2, 3, 'S');
+    public void closeToEdgeDiagonalBoardForW() {
+        GameBoard closeToEdgeDiagonalBoard = CreateTestGameBoard.closeToEdgeDiagonalBoardForW();
+        int points = WOWPatternChecker.checkDiagonal(closeToEdgeDiagonalBoard, 2, 3, 'W');
         assertEquals(0, points);
+    }
+
+    @Test
+    public void closeToEdgeTwoPointsDiagonalBoardForW() {
+        GameBoard closeToEdgeDiagonalBoard = CreateTestGameBoard.closeToEdgeTwoPointsDiagonalBoardForW();
+        int points = WOWPatternChecker.checkDiagonal(closeToEdgeDiagonalBoard, 1, 2, 'W');
+        assertEquals(2, points);
     }
 }
